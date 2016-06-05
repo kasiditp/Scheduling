@@ -70,7 +70,7 @@ public class AddActivity extends Activity implements OnItemSelectedListener {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().editSchedule(number, position, ((EditText)findViewById(R.id.editText)).getText().toString() );
-                Toast.makeText(getApplicationContext(), "Fuckk", Toast.LENGTH_LONG).show();
+
 
                 finish();
             }

@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ske.scheduling.R;
 
@@ -35,11 +37,19 @@ public class ScheduleAdapter extends ArrayAdapter<Schedule>{
         TextView time = (TextView) v.findViewById(R.id.time);
         TextView title = (TextView) v.findViewById(R.id.title);
 
-        Schedule sch = getItem(position);
+        final Schedule sch = getItem(position);
         time.setText(sch.getTime()+":00 - "+(sch.getTime()+1)+":00");
         title.setText(sch.getTitle());
-        System.out.println("test : " + v);
+
+        Button del = (Button) v.findViewById(R.id.delete_button);
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sch.setTitle("No schedule");
+            }
+        });
 
         return v;
     }
+
 }
